@@ -4,7 +4,7 @@ metadata:
   name: valheim-game-pv-claim
   namespace: valheim
 spec:
-  storageClass: "valheim-game"
+  storageClassName: "valheim-game"
   accessModes:
     - ReadWriteOnce
   resources:
