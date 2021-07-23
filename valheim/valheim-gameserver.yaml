@@ -1,0 +1,77 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: valheim
+  labels:
+    app: valheim
+spec:
+  type: NodePort
+  ports:
+  - port: 30970
+    targetPort: 2456
+    protocol: UDP
+    name: val-steam
+  - port: 30971
+    targetPort: 2457
+    protocol: UDP
+    name: val-gameclient
+  - port: 30972
+    targetPort: 2458
+    protocol: UDP
+    name: val-gamerawudpport
+  selector:
+    app: valheim
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: valheim
+  labels:
+    app: valheimg
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: valheim
+  template:
+    metadata:
+      labels:
+        app: valheim
+    spec:
+      containers:
+      - image: image-registry.openshift-image-registry.svc:5000/valheim/valheim-docker:latest
+        name: valheimg
+        env:
+          # Server Parameters
+        - name: NAME
+          value: "valheim.apps.okd4.cjlabs.dev"
+        - name: PORT
+          value: "2456"
+        - name: PASSWORD
+          value: "toast1"
+        - name: TZ
+          value: "America/Chicago"
+        ports:
+          - containerPort: 2456
+            protocol: UDP
+            name: val-steams
+          - containerPort: 2457
+            protocol: UDP
+            name: val-gameclient
+          - containerPort: 2458
+            protocol: UDP
+            name: val-gamerawudp
+        volumeMounts:
+        - name: valheimsave-persistent-storage
+          mountPath: /home/steam/.config/unity3d/IronGate/Valheim
+          subPath: saves
+        - name: valheimgame-persistent-storage
+          mountPath: /home/steam/valheim
+      volumes:
+      - name: valheimsave-persistent-storage
+        persistentVolumeClaim:
+          claimName: valheim-saves-pv-claim 
+      - name: valheimgame-persistent-storage
+        persistentVolumeClaim:
+          claimName: valheim-game-pv-claim
+
