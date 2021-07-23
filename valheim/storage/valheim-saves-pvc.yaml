@@ -3,7 +3,7 @@ kind: PersistentVolumeClaim
 metadata:
   name: valheim-saves-pv-claim
   namespace: valheim
-smepec:
+spec:
   storageClassName: "valheim"
   accessModes:
     - ReadWriteOnce
