@@ -10,4 +10,4 @@ spec:
   persistentVolumeReclaimPolicy: Retain
   nfs:
     path: /var/nfsshare/valheim/saves
-    server: 192.168.1.60
+    server: 192.168.1.81
