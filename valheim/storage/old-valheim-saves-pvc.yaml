@@ -4,7 +4,7 @@ metadata:
   name: old-valheim-saves-pv-claim
   namespace: valheim
 spec:
-  volumeName: "old-valheim-saves-pv"
+  storageClassName: ""
   accessModes:
     - ReadWriteOnce
   resources:
