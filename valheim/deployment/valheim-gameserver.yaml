@@ -57,12 +57,15 @@ spec:
           - containerPort: 2456
             protocol: UDP
             name: val-steams
+            nodePort: 30756
           - containerPort: 2457
             protocol: UDP
             name: val-gameclient
+            nodePort: 30757
           - containerPort: 2458
             protocol: UDP
             name: val-gamerawudp
+            nodePort: 30758
         volumeMounts:
         - name: valheimsave-persistent-storage
           mountPath: /home/steam/.config/unity3d/IronGate/Valheim
