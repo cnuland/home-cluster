@@ -30,6 +30,8 @@ spec:
         name: mc-vanilla
         env:
           # Use secret in real usage
+        - name: RCON
+          value: "false"
         - name: EULA
           value: "true"
         ports:
