@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: old-valheim-saves-pv-claim
+  namespace: valheim
+spec:
+  volumeName: "old-valheim-saves-pv"
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 50Gi

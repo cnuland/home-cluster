@@ -69,6 +69,8 @@ spec:
           subPath: saves
         - name: valheimgame-persistent-storage
           mountPath: /home/steam/valheim
+        - name: old-valheim-data
+          mountPath: /home/steam/old
       volumes:
       - name: valheimsave-persistent-storage
         persistentVolumeClaim:
@@ -76,4 +78,7 @@ spec:
       - name: valheimgame-persistent-storage
         persistentVolumeClaim:
           claimName: valheim-game-pv-claim
+      - name: old-valheim-data
+        persistentVolumeClaim:
+          claimName: old-valheim-saves-pv-claim
 
