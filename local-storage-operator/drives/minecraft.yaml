@@ -1,0 +1,19 @@
+apiVersion: "local.storage.openshift.io/v1"
+kind: "LocalVolume"
+metadata:
+  name: "minecraft-game-disk"
+  namespace: "openshift-local-storage" 
+spec:
+  nodeSelector: 
+    nodeSelectorTerms:
+    - matchExpressions:
+        - key: kubernetes.io/hostname
+          operator: In
+          values:
+          - okd4-minecraft-zk98r
+  storageClassDevices:
+    - storageClassName: "minecraft" 
+      volumeMode: Filesystem 
+      fsType: xfs 
+      devicePaths: 
+        - /dev/sdb
