@@ -56,5 +56,5 @@ spec:
           mountPath: /data
       volumes:
       - name: mc-data
-         persistentVolumeClaim:
+        persistentVolumeClaim:
           claimName: minecraft-game-pv-claim
