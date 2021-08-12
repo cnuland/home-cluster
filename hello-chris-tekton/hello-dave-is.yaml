@@ -4,3 +4,4 @@ metadata:
   labels:
     application: hello-dave
   name: hello-dave
+  namespace: hello-chris-tekton
