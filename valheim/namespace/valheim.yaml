@@ -4,5 +4,5 @@ kind: Namespace
 metadata:
   name: valheim
   annotations:
-    openshift.io/node-selector: "kubernetes.io/hostname=okd4-valheim-7j4vx"
+    openshift.io/node-selector: "kubernetes.io/hostname=okd4-7j4vx-valheim-sx949"
 spec:

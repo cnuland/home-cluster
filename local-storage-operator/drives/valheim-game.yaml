@@ -10,7 +10,7 @@ spec:
         - key: kubernetes.io/hostname
           operator: In
           values:
-          - okd4-valheim-7j4vx
+          - okd4-7j4vx-valheim-sx949
   storageClassDevices:
     - storageClassName: "valheim-game" 
       volumeMode: Filesystem 
